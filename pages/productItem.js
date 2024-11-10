@@ -27,5 +27,12 @@ module.exports = {
         `.inventory_item:nth-of-type(${index}) .pricebar .btn_inventory`
       ).click(`.inventory_item:nth-of-type(${index}) .pricebar .btn_inventory`);
     },
+    goToProductPage(index, callback) {
+      this.click(`.inventory_item:nth-of-type(${index}) .inventory_item_name`);
+      if (callback) {
+        callback(true);
+      }
+      return this;
+    },
   },
 };

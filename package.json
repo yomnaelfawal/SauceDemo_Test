@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "chromedriver": "^130.0.4",
-    "geckodriver": "^5.0.0"
+    "geckodriver": "^5.0.0",
+    "supertest": "^7.0.0"
   }
 }

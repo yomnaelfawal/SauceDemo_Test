@@ -3,9 +3,21 @@ module.exports = {
 
   elements: {
     checkOutBtn: "#checkout",
+    cartList: "#cart_contents_container > div > div.cart_list",
   },
 
   commands: {
+    getNumberOfItems(callback) {
+      this.api.elements(
+        "css selector",
+        `${this.elements.cartList.selector} > *`,
+        (result) => {
+          if (callback) {
+            callback(result.value.length);
+          }
+        }
+      );
+    },
     getCartItemName(index, callback) {
       return this.getText(
         `.cart_item:nth-of-type(${index}) .inventory_item_name`,
@@ -35,6 +47,9 @@ module.exports = {
           }
         }
       );
+    },
+    checkout() {
+      return this.click("@checkOutBtn");
     },
   },
 };

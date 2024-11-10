@@ -8,9 +8,21 @@ module.exports = {
     tax: "#checkout_summary_container > div > div.summary_info > div.summary_tax_label",
     totalPrice:
       "#checkout_summary_container > div > div.summary_info > div.summary_total_label",
+    productList: "#checkout_summary_container > div > div.cart_list",
   },
 
   commands: {
+    getItemsNumber(callback) {
+      return this.api.elements(
+        "css selector",
+        `${this.elements.productList.selector} > *`,
+        (result) => {
+          if (callback) {
+            callback(result.value.length);
+          }
+        }
+      );
+    },
     getProductName(index, callback) {
       return this.getText(
         `.cart_item:nth-of-type(${index}) .inventory_item_name`,
@@ -63,6 +75,9 @@ module.exports = {
           callback(parseFloat(result.value.replace(/[^0-9.]+/g, "")));
         }
       });
+    },
+    finish() {
+      return this.click("@finishBtn");
     },
   },
 };

@@ -5,11 +5,8 @@ module.exports = {
     userNameField: "#user-name",
     passwordField: "#password",
     loginBtn: "#login-button",
-  },
-
-  data: {
-    usernameStd: "standard_user",
-    passwordStd: "secret_sauce",
+    errorMessage:
+      "#login_button_container > div > form > div.error-message-container.error > h3",
   },
 
   commands: {
@@ -20,9 +17,9 @@ module.exports = {
       );
     },
     fillOutLoginFormStdUser() {
-      return this.setValue("@userNameField", this.data.usernameStd).setValue(
+      return this.setValue("@userNameField", "standard_user").setValue(
         "@passwordField",
-        this.data.passwordStd
+        "secret_sauce"
       );
     },
     logIn() {

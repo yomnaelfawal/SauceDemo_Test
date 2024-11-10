@@ -5,6 +5,7 @@ module.exports = {
     sortDropDown:
       "#header_container > div.header_secondary_container > div > span > select",
     inventoryList: "#inventory_container > div",
+    inCartNumber: "#shopping_cart_container > a > span",
   },
 
   commands: {
@@ -16,7 +17,7 @@ module.exports = {
     },
     getNumberOfProducts(callback) {
       let inventoryItemsCount;
-      this.api.elements(
+      return this.api.elements(
         "css selector",
         `${this.elements.inventoryList.selector} > *`,
         (result) => {
@@ -26,6 +27,13 @@ module.exports = {
           }
         }
       );
+    },
+    getCartItemsNumber(callback) {
+      return this.getText("@inCartNumber", (result) => {
+        if (callback) {
+          callback(result.value);
+        }
+      });
     },
   },
 };
