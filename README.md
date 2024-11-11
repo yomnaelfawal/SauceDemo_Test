@@ -4,7 +4,14 @@
 
 This project automates a user journey on the e-commerce website [SauceDemo](https://www.saucedemo.com/).
 
-## SauceDemo Automation Testing
+## Table of Contents
+
+- [Coverage](#coverage)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Running the Tests](#running-the-tests)
+
+## Coverage
 
 The automation script covers the following core functionalities:
 
